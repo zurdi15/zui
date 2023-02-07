@@ -1,0 +1,27 @@
+Standards-Version: 3.9.5
+Source: zui
+Package: zui
+Architecture: all
+Version: 0.1
+Release: 1
+Depends: build-essential, meson, cmake, cmake-data, pkg-config,
+    libxcb-ewmh-dev, libxcb-icccm4-dev, libxcb-keysyms1-dev, libxcb-xtest0-dev, libcairo2-dev,
+    libxcb-util0-dev, libxcb-randr0-dev, libxcb-composite0-dev, libxcb-image0-dev, libxcb-xkb-dev,
+    libasound2-dev, libpulse-dev, libjsoncpp-dev, libmpdclient-dev, libcurl4-openssl-dev,
+    libnl-genl-3-dev, libuv1-dev, libpam0g-dev, libxrandr-dev, libfreetype6-dev,
+    libimlib2-dev, libxft-dev, libxext-dev, libxcb-damage0-dev, libxcb-xfixes0-dev,
+    libxcb-render-util0-dev, libxcb-render0-dev, libxcb-present-dev, libxcb-xinerama0-dev, libpixman-1-dev,
+    libdbus-1-dev, libconfig-dev, libgl1-mesa-dev, libpcre2-dev, libevdev-dev,
+    libev-dev, libx11-xcb-dev, libxcb-glx0-dev, libpango1.0-dev, libxcb1-dev,
+    libyajl-dev, libxcb-cursor-dev, libxkbcommon-dev, libxkbcommon-x11-dev, libstartup-notification0-dev,
+    libxcb-xrm0, libxcb-xrm-dev, libxcb-shape0, libxcb-shape0-dev, libhidapi-libusb0,
+    libx11-dev, libxinerama-dev, libxss-dev, libglib2.0-dev, libgtk-3-dev,
+    libxdg-basedir-dev, libnotify-dev,
+    dh-autoreconf, xcb-proto, uthash-dev, xcb,
+    snap, curl, pavucontrol, playerctl, rofi, feh, zsh, ranger,
+    python3-pip, python3-sphinx, python3-xcbgen
+Section: UI
+Priority: optional
+Maintainer: zurdi <zurdizurdo25@gmail.com>
+Homepage: https://github.com/zurdi15/zui
+Description: zui cli
