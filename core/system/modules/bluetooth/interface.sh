@@ -300,7 +300,7 @@ show_menu() {
 }
 
 # Rofi command to pipe into, can add any options here
-rofi_command="rofi -dmenu -p  -theme ${HOME}/.config/rofi/themes/launcher_networks.rasi -show-icons"
+rofi_command="rofi -dmenu -p  -theme ${HOME}/.config/rofi/themes/launcher.rasi"
 
 case "$1" in
     --status)

@@ -33,6 +33,7 @@ if [[ -z $(find /sys/class/backlight -type d -empty) ]]; then
 else
 	BACKLIGHT=''
 fi
+polybar tray -c "${BOTTOM_BARS}" &
 polybar notifications"${BATTERY}""${BACKLIGHT}" -c "${BOTTOM_BARS}" &
 polybar indicators"${BATTERY}""${BACKLIGHT}" -c "${BOTTOM_BARS}" &
 polybar network"${BATTERY}""${BACKLIGHT}" -c "${BOTTOM_BARS}" &
