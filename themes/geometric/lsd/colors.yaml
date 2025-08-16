@@ -1,24 +1,24 @@
-user: 230
-group: 187
+user: 6        # cyan (matches geometric_8 #75D7EC)
+group: 3       # yellow (matches geometric_3 #E4F34A) 
 permission:
-  read: dark_green
-  write: dark_yellow
-  exec: magenta 
-  exec-sticky: 5
-  no-access: 245
+  read: 2      # green (matches geometric_4 #42E66C)
+  write: 3     # yellow (matches geometric_3 #E4F34A)
+  exec: 5      # magenta (matches geometric_2 #9B6BDF)
+  exec-sticky: 1  # red (matches geometric_6 #E64747)
+  no-access: 8    # dark gray
 date:
-  hour-old: 40
-  day-old: 42
-  older: 36
+  hour-old: 2     # green (recent files - geometric_4)
+  day-old: 6      # cyan (day old - geometric_8)  
+  older: 8        # dark gray (older files)
 size:
-  none: 245
-  small: 229
-  medium: 216
-  large: 172
+  none: 8         # dark gray
+  small: 7        # light gray
+  medium: 3       # yellow (geometric_3)
+  large: 1        # red (geometric_6)
 inode:
-  valid: 13
-  invalid: 245
+  valid: 2        # green (geometric_4)
+  invalid: 8      # dark gray
 links:
-  valid: 13
-  invalid: 245
-tree-edge: 245
+  valid: 6        # cyan (geometric_8)
+  invalid: 8      # dark gray
+tree-edge: 8      # dark gray

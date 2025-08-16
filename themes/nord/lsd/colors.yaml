@@ -1,24 +1,24 @@
-user: 230
-group: 187
+user: 4        # blue (matches frost_1 #5e81ac)
+group: 6       # cyan (matches frost_3 #88c0d0)
 permission:
-  read: dark_green
-  write: dark_yellow
-  exec: magenta 
-  exec-sticky: 5
-  no-access: 245
+  read: 2      # green (matches aurora_2 #a3be8c)
+  write: 3     # yellow (matches aurora_3 #ebcb8b)
+  exec: 5      # magenta (matches aurora_1 #b48ead)
+  exec-sticky: 1  # red (matches aurora_5 #bf616a)
+  no-access: 8    # dark gray (matches polar_1 #4c566a)
 date:
-  hour-old: 40
-  day-old: 42
-  older: 36
+  hour-old: 2     # green (recent files - aurora_2)
+  day-old: 6      # cyan (day old - frost_3)
+  older: 8        # dark gray (older files - polar_1)
 size:
-  none: 245
-  small: 229
-  medium: 216
-  large: 172
+  none: 8         # dark gray (polar_1)
+  small: 7        # light gray
+  medium: 3       # yellow (aurora_3)
+  large: 1        # red (aurora_5)
 inode:
-  valid: 13
-  invalid: 245
+  valid: 4        # blue (frost_1)
+  invalid: 8      # dark gray (polar_1)
 links:
-  valid: 13
-  invalid: 245
-tree-edge: 245
+  valid: 6        # cyan (frost_3)
+  invalid: 8      # dark gray (polar_1)
+tree-edge: 8      # dark gray (polar_1)

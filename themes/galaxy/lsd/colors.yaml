@@ -1,24 +1,24 @@
-user: 230
-group: 187
+user: 6        # cyan (matches galaxy_8 #38BDF8)
+group: 5       # magenta (matches galaxy_5 #E879F9)
 permission:
-  read: dark_green
-  write: dark_yellow
-  exec: magenta 
-  exec-sticky: 5
-  no-access: 245
+  read: 2      # green (good permissions)
+  write: 3     # yellow (moderate permissions)
+  exec: 5      # magenta (matches galaxy_5 #E879F9)
+  exec-sticky: 1  # red (matches galaxy_6 #F472B6)
+  no-access: 8    # dark gray
 date:
-  hour-old: 40
-  day-old: 42
-  older: 36
+  hour-old: 6     # cyan (recent files - galaxy_8)
+  day-old: 5      # magenta (day old - galaxy_5)
+  older: 8        # dark gray (older files)
 size:
-  none: 245
-  small: 229
-  medium: 216
-  large: 172
+  none: 8         # dark gray
+  small: 7        # light gray
+  medium: 5       # magenta (galaxy_5)
+  large: 1        # red (galaxy_6)
 inode:
-  valid: 13
-  invalid: 245
+  valid: 6        # cyan (galaxy_8)
+  invalid: 8      # dark gray
 links:
-  valid: 13
-  invalid: 245
-tree-edge: 245
+  valid: 5        # magenta (galaxy_5)
+  invalid: 8      # dark gray
+tree-edge: 8      # dark gray

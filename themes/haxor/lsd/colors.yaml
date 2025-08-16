@@ -1,24 +1,24 @@
-user: 230
-group: 187
+user: 2        # green (matches haxor_0 #00ff00)
+group: 3       # yellow (matches haxor_1 #fff500)
 permission:
-  read: dark_green
-  write: dark_yellow
-  exec: magenta 
-  exec-sticky: 5
-  no-access: 245
+  read: 2      # green (matches haxor_0 #00ff00)
+  write: 3     # yellow (matches haxor_1 #fff500)
+  exec: 1      # red (matches haxor_3 #ff0000)
+  exec-sticky: 1  # red (matches haxor_3 #ff0000)
+  no-access: 8    # dark gray (matches haxor_4 #555555)
 date:
-  hour-old: 40
-  day-old: 42
-  older: 36
+  hour-old: 2     # green (recent files - haxor_0)
+  day-old: 3      # yellow (day old - haxor_1)
+  older: 8        # dark gray (older files)
 size:
-  none: 245
-  small: 229
-  medium: 216
-  large: 172
+  none: 8         # dark gray (haxor_4)
+  small: 7        # light gray
+  medium: 3       # yellow (haxor_1)
+  large: 1        # red (haxor_3)
 inode:
-  valid: 13
-  invalid: 245
+  valid: 2        # green (haxor_0)
+  invalid: 8      # dark gray (haxor_4)
 links:
-  valid: 13
-  invalid: 245
-tree-edge: 245
+  valid: 2        # green (haxor_0)
+  invalid: 8      # dark gray (haxor_4)
+tree-edge: 8      # dark gray (haxor_4)
