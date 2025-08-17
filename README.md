@@ -321,6 +321,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [baskerville](https://github.com/baskerville) - bspwm and sxhkd
 - [polybar team](https://github.com/polybar/polybar) - Polybar status bar
-- [All contributors](https://github.com/zurdi15/zui-linux/contributors) - Community improvements
+- [All contributors](https://github.com/zurdi15/zui/contributors) - Community improvements
 
 **Note**: This project is designed for X11 environments. Wayland support may be added in future versions.
