@@ -62,9 +62,10 @@ This separation means you can:
 
 | Theme | Description | Screenshot |
 |-------|-------------|------------|
-| **Galaxy** | Dark theme with purple/blue accents | <img src=".github/resources/galaxy.png" /> |
-| **Nord** | Clean Nordic-inspired color scheme | <img src=".github/resources/nord.png" /> |
-| **Haxor** | Cyberpunk/terminal aesthetic | <img src=".github/resources/haxor.png" /> |
+| **Geometric** |  Geometric theme colors inspired by glowing wireframe aesthetic | <img src=".github/resources/geometric_desktop.png" /> |
+| **Galaxy** | Dark theme with purple/blue accents | <img src=".github/resources/galaxy_desktop.png" /> |
+| **Nord** | Clean Nordic-inspired color scheme | <img src=".github/resources/nord_desktop.png" /> |
+| **Haxor** | Cyberpunk/terminal aesthetic | <img src=".github/resources/haxor_desktop.png" /> |
 
 ## Components
 
