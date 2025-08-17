@@ -1,8 +1,19 @@
-# ZUI - Automated BSPWM Desktop Environment
+<div align="center">
+  <img src=".github/logotipo.svg" height="100px" width="auto" alt="zui logo">
+  <br />
+  <img src=".github/isotipo.png" height="40px" width="auto" alt="zui logotype">
+
+  <h3 style="font-size: 25px;">
+    Automated BSPWM Desktop Environment
+  </h3>
+  <br/>
 
 [![WM](https://img.shields.io/badge/window%20manager-bspwm-orange.svg)](https://github.com/baskerville/bspwm)
 [![Shell](https://img.shields.io/badge/shell-zsh-green.svg)](https://www.gnu.org/software/zsh/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+  </div>
+</div>
 
 A complete, automated installation system for a modern tiling window manager desktop environment based on **bspwm**. ZUI provides a beautiful, functional, and customizable desktop experience with multiple themes and modular installation options.
 
