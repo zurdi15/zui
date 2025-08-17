@@ -26,13 +26,23 @@ reload() {
         fi
     fi
     if pgrep -x "dunst" > /dev/null; then
-        if ! run_with_progress "- Restarting dunst daemon" bash -c "pkill -x dunst && sleep 0.5 && dunst &"; then
-            log_warn "Failed to restart dunst daemon"
+        if ! run_with_progress "- Reloading dunst" bash -c "pkill -x dunst && sleep 0.5 && dunst &"; then
+            log_warn "Failed to reload dunst"
         fi
     else
         # Start dunst if not running
-        if ! run_with_progress "- Starting dunst daemon" bash -c "dunst &"; then
-            log_warn "Failed to start dunst daemon"
+        if ! run_with_progress "- Starting dunst" bash -c "dunst &"; then
+            log_warn "Failed to start dunst"
+        fi
+    fi
+    if pgrep -x "sxhkd" > /dev/null; then
+        if ! run_with_progress "- Reloading sxhkd" bash -c "pkill -x sxhkd && sleep 0.5 && sxhkd &"; then
+            log_warn "Failed to reload sxhkd"
+        fi
+    else
+        # Start sxhkd if not running
+        if ! run_with_progress "- Starting sxhkd" bash -c "sxhkd &"; then
+            log_warn "Failed to start sxhkd"
         fi
     fi
     echo ""

@@ -5,12 +5,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 ZUI_PATH=${HOME}/.zui
 
 # init sxhkd
-pkill sxhkd && sleep 1 && sxhkd &
-# pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x sxhkd > /dev/null || sxhkd &
 
 # init dunst notification daemon
-pkill dunst && sleep 1 && dunst &
-# pgrep -x dunst > /dev/null || dunst &
+pgrep -x dunst > /dev/null || dunst &
 
 bash "${ZUI_PATH}/core/system/modules/monitors/interface.sh"
 
