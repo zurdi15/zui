@@ -117,11 +117,11 @@ install_full() {
     authenticate_sudo
     check_deps_command
     local deps_status=$?
-    if [[ $deps_status -ne 0 ]]; then
+    if [[ ${deps_status} -ne 0 ]]; then
         log_warning "\nSome dependencies are missing."
         read -p "Do you want to install the missing dependencies automatically? [Y/n]: " reply
         reply=${reply,,} # to lowercase
-        if [[ -z "$reply" || "$reply" == "y" || "$reply" == "yes" ]]; then
+        if [[ -z "${reply}" || "${reply}" == "y" || "${reply}" == "yes" ]]; then
             install_deps_command
         else
             log_error "Installation aborted due to missing dependencies."
@@ -140,11 +140,11 @@ install_ui_only() {
     authenticate_sudo
     check_deps_command
     local deps_status=$?
-    if [[ $deps_status -ne 0 ]]; then
+    if [[ ${deps_status} -ne 0 ]]; then
         log_warning "\nSome dependencies are missing."
         read -p "Do you want to install the missing dependencies automatically? [Y/n]: " reply
         reply=${reply,,}
-        if [[ -z "$reply" || "$reply" == "y" || "$reply" == "yes" ]]; then
+        if [[ -z "${reply}" || "${reply}" == "y" || "${reply}" == "yes" ]]; then
             install_deps_command
         else
             log_error "UI-only installation aborted due to missing dependencies."
