@@ -81,6 +81,23 @@ install_core_components() {
     echo ""
 }
 
+install_fonts() {
+    FONT_SRC="${BASE_PATH}/core/.local/share/fonts"
+    FONT_DEST="${HOME}/.local/share/fonts"
+    if [[ -d "${FONT_SRC}" ]]; then
+        log_info "Installing fonts from core/.local/share/fonts/"
+        mkdir -p "${FONT_DEST}"
+        cp -u "${FONT_SRC}"/* "${FONT_DEST}/"
+        if fc-cache -fv "${FONT_DEST}"; then
+            log_success "Fonts installed and cache updated."
+        else
+            log_warning "Failed to update font cache. Fonts may not be available until you run 'fc-cache -fv' manually."
+        fi
+    else
+        log_warning "No fonts found in core/.local/share/fonts/ to install."
+    fi
+}
+
 # Configure network triggers
 configure_network_triggers() {
     log_info "Configuring network triggers"
@@ -119,6 +136,7 @@ main() {
 
     create_zui_structure
     install_core_components
+    install_fonts
     configure_network_triggers
 
     echo ""
