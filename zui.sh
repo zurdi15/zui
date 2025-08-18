@@ -115,8 +115,10 @@ run_script() {
 # Installation functions
 install_full() {
     authenticate_sudo
+    set +e
     check_deps_command
     local deps_status=$?
+    set -e
     if [[ ${deps_status} -ne 0 ]]; then
         log_warning "\nSome dependencies are missing."
         read -p "Do you want to install the missing dependencies automatically? [Y/n]: " reply
@@ -138,8 +140,10 @@ install_full() {
 
 install_ui_only() {
     authenticate_sudo
+    set +e
     check_deps_command
     local deps_status=$?
+    set -e
     if [[ ${deps_status} -ne 0 ]]; then
         log_warning "\nSome dependencies are missing."
         read -p "Do you want to install the missing dependencies automatically? [Y/n]: " reply
