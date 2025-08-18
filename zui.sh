@@ -105,7 +105,7 @@ run_script() {
     fi
     
     if [[ ! -x "${script_path}" ]]; then
-        log_warning "Making script executable: ${script_path}"
+        log_warn "Making script executable: ${script_path}"
         chmod +x "${script_path}"
     fi
 
@@ -120,7 +120,7 @@ install_full() {
     local deps_status=$?
     set -e
     if [[ ${deps_status} -ne 0 ]]; then
-        log_warning "\nSome dependencies are missing."
+        log_warn "\nSome dependencies are missing."
         read -p "Do you want to install the missing dependencies automatically? [Y/n]: " reply
         reply=${reply,,} # to lowercase
         if [[ -z "${reply}" || "${reply}" == "y" || "${reply}" == "yes" ]]; then
@@ -145,7 +145,7 @@ install_ui_only() {
     local deps_status=$?
     set -e
     if [[ ${deps_status} -ne 0 ]]; then
-        log_warning "\nSome dependencies are missing."
+        log_warn "\nSome dependencies are missing."
         read -p "Do you want to install the missing dependencies automatically? [Y/n]: " reply
         reply=${reply,,}
         if [[ -z "${reply}" || "${reply}" == "y" || "${reply}" == "yes" ]]; then
@@ -160,7 +160,7 @@ install_ui_only() {
     install_theme_command
     post_install_command
     log_success "ZUI UI-only installation completed!"
-    log_warning "Shell configuration was skipped."
+    log_warn "Shell configuration was skipped."
     log_info "Run '$0 install-shell' later if you want shell configuration."
 }
 
@@ -271,7 +271,7 @@ wallpaper_command() {
         feh --bg-fill "${INSTALL_DIR}/current_theme/wallpapers/current_wallpaper"
         log_success "Wallpaper changed successfully!"
     else
-        log_warning "feh not found. Please install feh to apply wallpapers automatically."
+        log_warn "feh not found. Please install feh to apply wallpapers automatically."
         log_info "You can manually apply the wallpaper with: feh --bg-fill ${INSTALL_DIR}/current_theme/wallpapers/current_wallpaper"
     fi
 }

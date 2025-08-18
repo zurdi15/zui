@@ -114,7 +114,7 @@ install_window_manager() {
         track_software "bspwm (Binary Space Partitioning Window Manager)"
         track_software "sxhkd (Simple X HotKey Daemon)"
     else
-        log_warning "Package manager installation failed, building from source..."
+        log_warn "Package manager installation failed, building from source..."
         
         if [[ ! -d "${TMP_PATH}/bspwm" ]]; then
             if ! run_with_progress "- Installing bspwm" bash -c "git clone https://github.com/baskerville/bspwm.git '${TMP_PATH}/bspwm' >> '${LOG_FILE}' 2>&1 && cd '${TMP_PATH}/bspwm' && make >> '${LOG_FILE}' 2>&1 && sudo make install >> '${LOG_FILE}' 2>&1"; then

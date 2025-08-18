@@ -1,3 +1,5 @@
+#!/bin/bash
+
 log_info() {
     echo -e "${BLUE}[INFO]${NC} $1" | tee -a "${LOG_FILE}" 2>/dev/null || echo -e "${BLUE}[INFO]${NC} $1"
 }
