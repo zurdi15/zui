@@ -120,7 +120,8 @@ install_full() {
     local deps_status=$?
     set -e
     if [[ ${deps_status} -ne 0 ]]; then
-        log_warn "\nSome dependencies are missing."
+        echo ""
+        log_warn "Some dependencies are missing."
         read -p "Do you want to install the missing dependencies automatically? [Y/n]: " reply
         reply=${reply,,} # to lowercase
         if [[ -z "${reply}" || "${reply}" == "y" || "${reply}" == "yes" ]]; then
@@ -145,7 +146,8 @@ install_ui_only() {
     local deps_status=$?
     set -e
     if [[ ${deps_status} -ne 0 ]]; then
-        log_warn "\nSome dependencies are missing."
+        echo ""
+        log_warn "Some dependencies are missing."
         read -p "Do you want to install the missing dependencies automatically? [Y/n]: " reply
         reply=${reply,,}
         if [[ -z "${reply}" || "${reply}" == "y" || "${reply}" == "yes" ]]; then
