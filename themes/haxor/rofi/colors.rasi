@@ -1,0 +1,20 @@
+* {
+  // Haxor theme colors
+  bg-main: #000000;
+  bg-alt: #1a1a1a;
+  bg-light: #333333;
+  fg: #00ff00;
+  accent: #00ff00;
+  success: #00ff00;
+  warning: #fff500;
+  error: #ff0000;
+  info: #ff9900;
+  
+  background-color: transparent;
+  text-color: @fg;
+  
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}

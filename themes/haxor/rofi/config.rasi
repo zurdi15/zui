@@ -1,0 +1,16 @@
+configuration {
+  modi: "drun,window,filebrowser,run,ssh";
+
+  font: "Iosevka Nerd Font 12";
+  show-icons: true;
+  display-drun: "󰀻 Apps";
+  drun-display-format: "{icon} {name}";
+  display-run: "󰞷 Run";
+  run-display-format: "{name}";
+  display-window: " Windows";
+  window-display-format: "{icon} {name}";
+  display-filebrowser: "󰉓  Filebrowser";
+  filebrowser-display-format: "{icon} {name}";
+  display-ssh: "󰛳 SSH";
+  ssh-display-format: "{name}";
+}

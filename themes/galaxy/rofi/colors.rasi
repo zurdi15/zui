@@ -1,0 +1,21 @@
+* {
+  // Galaxy theme colors inspired by cosmic nebula
+  bg-main: #0F0A1A;
+  bg-alt: #1A0B2E;
+  bg-light: #4C1D95;
+  fg: #F8F8F2;
+  accent: #A855F7;
+  success: #38BDF8;
+  warning: #FBBF24;
+  error: #F472B6;
+  info: #C084FC;
+  stellar-glow: #E879F9;
+  
+  background-color: transparent;
+  text-color: @fg;
+  
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
