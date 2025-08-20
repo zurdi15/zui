@@ -1,16 +1,17 @@
 configuration {
-  modes: "window,run,ssh,drun,filebrowser";
+  modi: "drun,window,filebrowser,run,ssh";
+
   font: "Iosevka Nerd Font 12";
   show-icons: true;
-  display-drun: "󰀻";
+  display-drun: "󰀻 Apps";
   drun-display-format: "{icon} {name}";
-  display-run: "󰞷";
+  display-run: "󰞷 Run";
   run-display-format: "{name}";
-  display-window: "";
+  display-window: " Windows";
   window-display-format: "{icon} {name}";
-  display-filebrowser: "󰉓";
+  display-filebrowser: "󰉓  Files";
   filebrowser-display-format: "{icon} {name}";
-  display-ssh: "󰛳";
+  display-ssh: "󰛳 SSH";
   ssh-display-format: "{name}";
 }
 
@@ -37,7 +38,7 @@ configuration {
 }
 
 window {
-  width: 520px;
+  width: 700px;
   background-color: @bg-main;
   border: 2px;
   border-color: @bg-light;
@@ -48,7 +49,7 @@ window {
 }
 
 mainbox {
-  children: [inputbar, listview];
+  children: [inputbar, listview, mode-switcher];
   background-color: transparent;
   padding: 15px;
   spacing: 15px;
@@ -63,7 +64,7 @@ inputbar {
 }
 
 prompt {
-  enabled: true;
+  enabled: false;
   background-color: transparent;
   text-color: @accent;
   padding: 8px;
@@ -83,11 +84,11 @@ listview {
   columns: 1;
   lines: 8;
   cycle: false;
-  dynamic: true;
+  dynamic: false;
   scrollbar: false;
   layout: vertical;
   reverse: false;
-  fixed-height: false;
+  fixed-height: true;
   fixed-columns: true;
   background-color: transparent;
   spacing: 4px;
@@ -135,4 +136,27 @@ element-text {
   cursor: inherit;
   vertical-align: 0.5;
   horizontal-align: 0.0;
+}
+
+mode-switcher {
+  orientation: horizontal;
+  spacing: 8px;
+  background-color: transparent;
+  text-color: @fg;
+  margin: 4px 0 0 0;
+}
+
+button {
+  background-color: @bg-alt;
+  text-color: @fg;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px;
+  border-color: transparent;
+}
+
+button selected.normal {
+  background-color: @accent;
+  text-color: @bg-main;
+  border-color: @accent;
 }
