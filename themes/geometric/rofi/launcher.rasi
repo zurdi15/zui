@@ -31,7 +31,7 @@ listbox {
 inputbar {
   enabled: true;
   spacing: 10px;
-  padding: 80px 60px;
+  padding: 40px 40px;
   background-color: transparent;
   background-image: url("~/.zui/current_theme/rofi/banner.jpg", width);
   text-color: @fg;
@@ -50,7 +50,7 @@ textbox-prompt-colon {
 entry {
   enabled: true;
   expand: false;
-  width: 350px;
+  width: 400px;
   padding: 12px 16px;
   border-radius: 6px;
   background-color: @bg-alt;
@@ -69,13 +69,11 @@ mode-switcher {
   spacing: 8px;
   background-color: transparent;
   text-color: @fg;
-  margin: 4px 0 0 0;
 }
 button {
   background-color: @bg-alt;
   text-color: @fg;
-  width: 65px;
-  padding: 10px 16px;
+  width: 55px;
   border-radius: 6px;
   border: 1px;
   border-color: transparent;

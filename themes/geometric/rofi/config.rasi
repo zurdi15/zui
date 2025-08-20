@@ -9,8 +9,8 @@ configuration {
   run-display-format: "{name}";
   display-window: "";
   window-display-format: "{icon} {name}";
-  display-filebrowser: "󰉓";
+  display-filebrowser: "󰉓 ";
   filebrowser-display-format: "{icon} {name}";
-  display-ssh: "󰛳";
+  display-ssh: "󰛳 ";
   ssh-display-format: "{name}";
 }

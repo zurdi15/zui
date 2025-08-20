@@ -72,7 +72,7 @@ toggle_scan() {
 pairable_on() {
     if bluetoothctl show | grep -q "Pairable: yes"; then
         echo "Pairable: on"
-        return 0power_on
+        return 0
     else
         echo "Pairable: off"
         return 1
