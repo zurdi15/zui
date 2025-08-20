@@ -96,7 +96,7 @@ EOF
 
 function rofi_cmd () {
     if command -v rofi &> /dev/null; then
-        echo -e "$1" | rofi -dmenu -p "⌨ " -theme "${HOME}/.config/rofi/themes/keybinds.rasi" -i -markup-rows
+        echo -e "$1" | rofi -dmenu -p "⌨ " -theme "${HOME}/.config/rofi/keybinds.rasi" -i -markup-rows
     else
         # Fallback to shell display if rofi is not available
         echo -e "$1" | sed 's/<[^>]*>//g' | less

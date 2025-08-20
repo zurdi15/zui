@@ -14,23 +14,23 @@ super + b
 
 # App launcher
 super + a
-	rofi -show drun -theme ${HOME}/.config/rofi/themes/launcher.rasi
+	rofi -show drun -theme ${HOME}/.config/rofi/launcher.rasi
 
 # Command exec
 super + c
-	rofi -show run -theme ${HOME}/.config/rofi/themes/launcher.rasi
+	rofi -show run -theme ${HOME}/.config/rofi/launcher.rasi
 
 # Window switcher
 super + x
-	rofi -show window -theme ${HOME}/.config/rofi/themes/launcher.rasi
+	rofi -show window -theme ${HOME}/.config/rofi/launcher.rasi
 
 # File explorer
 super + e
-	rofi -show filebrowser -theme ${HOME}/.config/rofi/themes/launcher.rasi
+	rofi -show filebrowser -theme ${HOME}/.config/rofi/launcher.rasi
 
 # SSH menu
 super + s
-	rofi -show ssh -theme ${HOME}/.config/rofi/themes/launcher.rasi
+	rofi -show ssh -theme ${HOME}/.config/rofi/launcher.rasi
 
 # Powermenu
 super + q

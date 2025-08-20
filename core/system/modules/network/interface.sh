@@ -59,7 +59,7 @@ function menu () {
 
 function rofi_cmd () {
   # don't repeat lines with uniq -u
-  echo -e "$1" | uniq -u | rofi -dmenu -p "直" -theme ${HOME}/.config/rofi/themes/launcher.rasi
+  echo -e "$1" | uniq -u | rofi -dmenu -p "直" -theme ${HOME}/.config/rofi/launcher.rasi
 }
 
 function rofi_menu () {
@@ -109,7 +109,7 @@ function main () {
 
     else
         if [[ "$OPS" =~ "WPA2" ]] || [[ "$OPS" =~ "WEP" ]]; then
-          WIFIPASS=$(echo -en "" | rofi -dmenu -password -p "$(echo ${OPS} | xargs | cut -d" " -f1)  :" -theme ${HOME}/.config/rofi/themes/launcher.rasi)
+          WIFIPASS=$(echo -en "" | rofi -dmenu -password -p "$(echo ${OPS} | xargs | cut -d" " -f1)  :" -theme ${HOME}/.config/rofi/launcher.rasi)
         fi
 
         if [[ "$CHSSID" != '' ]] && [[ "$WIFIPASS" != '' ]]; then

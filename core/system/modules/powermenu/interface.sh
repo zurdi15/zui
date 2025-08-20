@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-theme=${HOME}/.zui/current_theme/rofi/themes/powermenu.rasi
+theme=${HOME}/.zui/current_theme/rofi/powermenu.rasi
 rofi_command="rofi -theme ${theme}"
 
 # Options
