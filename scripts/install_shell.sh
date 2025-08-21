@@ -44,8 +44,8 @@ install_shell_configs() {
 	fi
 
 	# Copy shell configuration files if they exist
-	if [[ -d "${BASE_PATH}/common/shell" ]]; then
-		if ! run_with_progress "- Installing shell configuration files" bash -c "shopt -s dotglob && cp '${BASE_PATH}/common/shell'/* '${ZUI_PATH}/shell/' 2>/dev/null; shopt -u dotglob"; then
+	if [[ -d "${BASE_PATH}/core/shell" ]]; then
+		if ! run_with_progress "- Installing shell configuration files" cp '${BASE_PATH}/core/shell/.zshrc' '${ZUI_PATH}/shell/' && cp '${BASE_PATH}/core/shell/.p10k.zsh' '${ZUI_PATH}/shell/' 2>/dev/null; then
 			log_warn "Failed to copy shell configuration files"
 		fi
 	fi
@@ -84,8 +84,8 @@ install_shell_configs() {
 	fi
 
 	# Copy vim configuration
-	if [[ -d "${BASE_PATH}/common/.vim" ]]; then
-		if ! run_with_progress "- Installing vim configuration" cp -r "${BASE_PATH}/common/.vim" "${HOME}/.vim"; then
+	if [[ -d "${BASE_PATH}/core/.vim" ]]; then
+		if ! run_with_progress "- Installing vim configuration" cp -r "${BASE_PATH}/core/.vim" "${HOME}/.vim"; then
 			log_warn "Failed to copy vim config"
 		fi
 	fi
