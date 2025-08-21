@@ -1,5 +1,6 @@
 @import "~/.zui/current_theme/rofi/config.rasi"
 @import "~/.zui/current_theme/rofi/colors.rasi"
+@import "~/.zui/current_theme/rofi/font.rasi"
 
 window {
   width: 950px;

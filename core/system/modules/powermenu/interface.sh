@@ -1,69 +1,101 @@
 #!/usr/bin/env bash
 
 theme=${HOME}/.zui/current_theme/rofi/powermenu.rasi
-rofi_command="rofi -theme ${theme}"
+
+# CMDs
+uptime="$(uptime -p | sed -e 's/up //g')"
+host="$(hostname)"
 
 # Options
-lock="󰌾  lock"
-logout="󰍃  logout"
-suspend="󰒲  suspend"
-reboot="󰑐  reboot"
-shutdown="⏻  shutdown"
+hibernate=''
+shutdown='⏻'
+reboot='󰑐'
+lock='󰌾'
+suspend='󰒲'
+logout='󰍃'
+yes=''
+no='󰜺'
 
-# Variable passed to rofi
-options="${lock}\n${logout}\n${suspend}\n${reboot}\n${shutdown}"
+# Rofi CMD
+rofi_cmd() {
+	rofi -dmenu \
+		-p " ${USER}    󰒋 ${host}" \
+		-mesg "󰔟 ${uptime}" \
+		-theme "${theme}"
+}
 
-chosen="$(echo -e "${options}" | ${rofi_command} -dmenu -selected-row 0)"
-case ${chosen} in
-    "${shutdown}")
-	ans="yes"
-	if [[ ${ans} == "yes" || ${ans} == "YES" || ${ans} == "y" || ${ans} == "Y" ]]; then
-		systemctl poweroff
-	elif [[ ${ans} == "no" || ${ans} == "NO" || ${ans} == "n" || ${ans} == "N" ]]; then
-		exit 0
-        else
-		msg
-        fi
-        ;;
-    "${reboot}")
-	ans="yes"
-	if [[ ${ans} == "yes" || ${ans} == "YES" || ${ans} == "y" || ${ans} == "Y" ]]; then
-		systemctl reboot
-	elif [[ ${ans} == "no" || ${ans} == "NO" || ${ans} == "n" || ${ans} == "N" ]]; then
-		exit 0
-        else
-		msg
-        fi
-        ;;
-    "${lock}")
-	if [[ -f /usr/bin/betterlockscreen ]]; then
-		betterlockscreen -l
+# Confirmation CMD
+confirm_cmd() {
+	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
+		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
+		-theme-str 'listview {columns: 2; lines: 1;}' \
+		-theme-str 'element-text {horizontal-align: 0.5;}' \
+		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-dmenu \
+		-p 'Confirmation' \
+		-mesg 'Are you Sure?' \
+		-theme "${theme}"
+}
+
+# Ask for confirmation
+confirm_exit() {
+	echo -e "${yes}\n${no}" | confirm_cmd
+}
+
+# Pass variables to rofi dmenu
+run_rofi() {
+	echo -e "${lock}\n${suspend}\n${logout}\n${hibernate}\n${reboot}\n${shutdown}" | rofi_cmd
+}
+
+# Execute Command
+run_cmd() {
+	selected="$(confirm_exit)"
+	if [[ "${selected}" == "${yes}" ]]; then
+		if [[ $1 == '--shutdown' ]]; then
+			systemctl poweroff
+		elif [[ $1 == '--reboot' ]]; then
+			systemctl reboot
+		elif [[ $1 == '--hibernate' ]]; then
+			systemctl hibernate
+		elif [[ $1 == '--suspend' ]]; then
+			mpc -q pause
+			amixer set Master mute
+			systemctl suspend
+		elif [[ $1 == '--logout' ]]; then
+			if [[ "${DESKTOP_SESSION}" == 'openbox' ]]; then
+				openbox --exit
+			elif [[ "${DESKTOP_SESSION}" == 'bspwm' ]]; then
+				bspc quit
+			elif [[ "${DESKTOP_SESSION}" == 'i3' ]]; then
+				i3-msg exit
+			elif [[ "${DESKTOP_SESSION}" == 'plasma' ]]; then
+				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+			fi
+		fi
 	else
-		"$(dirname "${0}")/lock.sh"
+		exit 0
 	fi
-        ;;
-    "${suspend}")
-	ans="yes"
-	if [[ ${ans} == "yes" || ${ans} == "YES" || ${ans} == "y" || ${ans} == "Y" ]]; then
-		mpc -q pause
-		amixer set Master mute
-		systemctl suspend
-	elif [[ ${ans} == "no" || ${ans} == "NO" || ${ans} == "n" || ${ans} == "N" ]]; then
-		exit 0
-        else
-		msg
-        fi
-        ;;
-    "${logout}")
-	ans="yes"
-	if [[ ${ans} == "yes" || ${ans} == "YES" || ${ans} == "y" || ${ans} == "Y" ]]; then
-		bspc quit
-	elif [[ ${ans} == "no" || ${ans} == "NO" || ${ans} == "n" || ${ans} == "N" ]]; then
-		exit 0
-        else
-		msg
-        fi
-        ;;
-	*)
-		msg
+}
+
+# Actions
+chosen="$(run_rofi)"
+case "${chosen}" in
+	"${shutdown}")
+		run_cmd --shutdown
+		;;
+	"${reboot}")
+		run_cmd --reboot
+		;;
+	"${hibernate}")
+		run_cmd --hibernate
+		;;
+	"${lock}")
+		"${HOME}/.zui/core/system/modules/lock/interface.sh"
+		;;
+	"${suspend}")
+		run_cmd --suspend
+		;;
+	"${logout}")
+		run_cmd --logout
+		;;
 esac
