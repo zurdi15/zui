@@ -44,9 +44,20 @@ install_shell_configs() {
 	fi
 
 	# Copy shell configuration files if they exist
-	if [[ -d "${BASE_PATH}/core/shell" ]]; then
-		if ! run_with_progress "- Installing shell configuration files" cp '${BASE_PATH}/core/shell/.zshrc' '${ZUI_PATH}/shell/' && cp '${BASE_PATH}/core/shell/.p10k.zsh' '${ZUI_PATH}/shell/' 2>/dev/null; then
-			log_warn "Failed to copy shell configuration files"
+	if [[ -d "${BASE_PATH}/shell" ]]; then
+		if [[ -f "${BASE_PATH}/shell/.zshrc" ]]; then
+			if ! run_with_progress "- Installing .zshrc" cp "${BASE_PATH}/shell/.zshrc" "${ZUI_PATH}/shell/"; then
+				log_warn "Failed to copy .zshrc"
+			fi
+		else
+			log_warn ".zshrc not found in ${BASE_PATH}/shell"
+		fi
+		if [[ -f "${BASE_PATH}/shell/.p10k.zsh" ]]; then
+			if ! run_with_progress "- Installing .p10k.zsh" cp "${BASE_PATH}/shell/.p10k.zsh" "${ZUI_PATH}/shell/"; then
+				log_warn "Failed to copy .p10k.zsh"
+			fi
+		else
+			log_warn ".p10k.zsh not found in ${BASE_PATH}/shell"
 		fi
 	fi
 
