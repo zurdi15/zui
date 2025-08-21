@@ -331,8 +331,27 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [baskerville](https://github.com/baskerville) - bspwm and sxhkd
-- [polybar team](https://github.com/polybar/polybar) - Polybar status bar
-- [All contributors](https://github.com/zurdi15/zui/contributors) - Community improvements
+Special thanks to the developers and communities behind the following tools and projects that make ZUI possible:
+
+### UI Components
+- [bspwm](https://github.com/baskerville/bspwm) - Window manager
+- [sxhkd](https://github.com/baskerville/sxhkd) - Hotkey daemon
+- [polybar](https://github.com/polybar/polybar) - Status bar
+- [picom](https://github.com/ibhagwan/picom) - Compositor
+- [rofi](https://github.com/davatorium/rofi) - Application launcher
+- [dunst](https://github.com/dunst-project/dunst) - Notification daemon
+- [feh](https://feh.finalrewind.org/) - Wallpaper setter
+- [i3lock-color](https://github.com/Raymo111/i3lock-color) - Lock screen
+
+### Terminal Components
+- [zsh](https://www.zsh.org/) - Shell
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k) - Prompt theme
+- [lsd](https://github.com/Peltoche/lsd) - Modern ls replacement
+- [bat](https://github.com/sharkdp/bat) - File viewer
+- [ranger](https://github.com/ranger/ranger) - Console file manager
+- [neovim](https://neovim.io/) - Text editor
+- [fzf](https://github.com/junegunn/fzf) - Fuzzy finder
+
+[All contributors](https://github.com/zurdi15/zui/contributors) - Community improvements
 
 **Note**: This project is designed for X11 environments. Wayland support may be added in future versions.
