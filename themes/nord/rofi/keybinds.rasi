@@ -1,27 +1,6 @@
-configuration {
-  font: "Iosevka Nerd Font 12";
-}
-
-* {
-  // Nord theme colors
-  bg-main: #2e3440;
-  bg-alt: #3b4252;
-  bg-light: #434c5e;
-  fg: #eceff4;
-  accent: #88c0d0;
-  success: #a3be8c;
-  warning: #ebcb8b;
-  error: #bf616a;
-  info: #5e81ac;
-  
-  background-color: transparent;
-  text-color: @fg;
-  
-  border: 0;
-  margin: 0;
-  padding: 0;
-  spacing: 0;
-}
+@import "~/.zui/current_theme/rofi/config.rasi"
+@import "~/.zui/current_theme/rofi/colors.rasi"
+@import "~/.zui/current_theme/rofi/font.rasi"
 
 window {
   width: 920px;

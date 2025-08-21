@@ -1,7 +1,5 @@
 configuration {
   modi: "drun,window,filebrowser,run,ssh";
-
-  font: "Iosevka Nerd Font 12";
   show-icons: true;
   display-drun: "󰀻 Apps";
   drun-display-format: "{icon} {name}";

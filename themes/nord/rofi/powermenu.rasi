@@ -1,100 +1,111 @@
-configuration {
-  font: "Iosevka Nerd Font 13";
-}
+@import "~/.zui/current_theme/rofi/colors.rasi"
+@import "~/.zui/current_theme/rofi/font.rasi"
+@import "~/.zui/current_theme/rofi/config.rasi"
 
-* {
-  // Nord theme colors
-  bg-main: #2e3440;
-  bg-alt: #3b4252;
-  bg-light: #434c5e;
-  fg: #eceff4;
-  accent: #88c0d0;
-  success: #a3be8c;
-  warning: #ebcb8b;
-  error: #bf616a;
-  info: #5e81ac;
-  
-  background-color: transparent;
-  text-color: @fg;
-  
-  border: 0;
-  margin: 0;
-  padding: 0;
-  spacing: 0;
+configuration {
+    show-icons: false;
 }
 
 window {
-  width: 220px;
-  background-color: @bg-main;
-  border: 2px;
-  border-color: @bg-light;
-  border-radius: 12px;
-  transparency: "real";
-  location: center;
-  anchor: center;
+    width: 800px;
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    x-offset: 0px;
+    y-offset: 0px;
+    padding: 0px;
+    cursor: "default";
+    background-color: @bg-main;
+    border: 2px;
+    border-color: @bg-light;
+    border-radius: 6px;
 }
 
 mainbox {
-  children: [listview];
-  background-color: transparent;
-  padding: 15px;
-  spacing: 15px;
+    background-color:            transparent;
+    orientation:                 horizontal;
+    children:                    [ "imagebox", "listview" ];
+}
+
+imagebox {
+    spacing: 0px;
+    padding: 30px;
+    background-color: transparent;
+    background-image: url("~/.zui/current_theme/rofi/banner.png", height);
+    children: [ "inputbar", "dummy", "message" ];
+}
+
+inputbar {
+    background-color: @bg-light;
+    border: 1px;
+    border-color: @accent;
+    padding: 15px;
+    border-radius: 10px;
+    text-color: @fg;
+    children: [ "dummy", "prompt", "dummy"];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+prompt {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+
+message {
+    enabled: true;
+    margin: 0px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: @bg-light;
+    text-color: @fg;
+}
+
+textbox {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
 }
 
 listview {
-  columns: 1;
-  lines: 8;
-  cycle: false;
-  dynamic: true;
-  scrollbar: false;
-  layout: vertical;
-  reverse: false;
-  fixed-height: false;
-  fixed-columns: true;
-  background-color: transparent;
-  spacing: 4px;
-  margin: 0px;
-  padding: 0px;
+    enabled: true;
+    columns: 3;
+    lines: 2;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 30px;
+    margin: 30px;
+    background-color: transparent;
+    cursor: "default";
 }
 
 element {
-  orientation: horizontal;
-  children: [element-icon, element-text];
-  background-color: transparent;
-  text-color: @fg;
-  border-radius: 6px;
-  padding: 10px;
-  spacing: 12px;
-  border: 0px;
+    enabled: true;
+    padding: 18px 10px;
+    border-radius: 20px;
+    background-color: @bg-alt;
+    text-color: @fg;
+    cursor: pointer;
+    width: 60px;
 }
-
-element normal.normal {
-  background-color: transparent;
-  text-color: @fg;
-}
-
-element alternate.normal {
-  background-color: transparent;
-  text-color: @fg;
-}
-
-element selected.normal {
-  background-color: @bg-light;
-  text-color: @fg;
-  border: 1px;
-  border-color: @accent;
-}
-
-element-icon {
-  background-color: transparent;
-  size: 24px;
-  cursor: inherit;
-}
-
 element-text {
-  background-color: transparent;
-  text-color: inherit;
-  cursor: inherit;
-  vertical-align: 0.5;
-  horizontal-align: 0.0;
+    font: "Iosevka Nerd Font 32";
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+element selected.normal {
+    background-color: @accent;
+    text-color: @bg-main;
 }

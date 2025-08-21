@@ -4,7 +4,6 @@ theme=${HOME}/.zui/current_theme/rofi/powermenu.rasi
 
 # CMDs
 uptime="$(uptime -p | sed -e 's/up //g')"
-host="$(hostname)"
 
 # Options
 hibernate=''
@@ -19,7 +18,7 @@ no='󰜺'
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-		-p " ${USER}    󰒋 ${host}" \
+		-p " ${USER}    󰒋 ${HOSTNAME}" \
 		-mesg "󰔟 ${uptime}" \
 		-theme "${theme}"
 }
