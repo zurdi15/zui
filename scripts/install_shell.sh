@@ -37,8 +37,8 @@ confirm_shell_installation() {
 install_shell_configs() {
 	log_info "Installing shell configurations"
 
-	# Create shell config directory in ZUI
-	if ! run_with_progress "- Creating shell configuration directory" mkdir -p "${ZUI_PATH}/shell" "${ZUI_PATH}/backups/shell"; then
+	# Ensure shell config directories exist (may have been created in main)
+	if ! run_with_progress "- Ensuring shell configuration directories exist" mkdir -p "${ZUI_PATH}/shell" "${ZUI_PATH}/backups/shell"; then
 		log_error "Failed to create shell directories"
 		exit 1
 	fi
@@ -132,6 +132,12 @@ install_zsh_plugins() {
 install_shell_tools() {
 	log_info "Installing shell tools"
 
+	# Install zsh first
+	if ! run_with_progress "- Installing zsh" sudo apt install -y zsh; then
+		log_error "Failed to install zsh"
+		exit 1
+	fi
+
 	if ! run_with_progress "- Installing lsd (LSDeluxe)" sudo apt install -y lsd; then
 		log_error "Failed to install lsd"
 		exit 1
@@ -164,8 +170,8 @@ configure_prompt() {
 
 	# Install omz
 	if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
-		if ! run_with_progress "- Installing Oh My Zsh" bash -c "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended"; then
-			log_warn "Failed to install user Oh My Zsh"
+		if ! run_with_progress "- Installing Oh My Zsh" bash -c "RUNZSH=no CHSH=no sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""; then
+			log_warn "Failed to install Oh My Zsh"
 		fi
 	else
 		log_info "- Oh My Zsh already exists, skipping..."
@@ -186,7 +192,13 @@ set_default_shell() {
 
 	# Check if zsh is installed
 	if ! command -v zsh &>/dev/null; then
-		log_error "Zsh is not installed. Please install zsh first."
+		log_error "Zsh is not installed. This should not happen - please check the installation."
+		return 1
+	fi
+
+	# Verify zsh path exists
+	if [[ ! -f "/usr/bin/zsh" ]]; then
+		log_error "Zsh executable not found at /usr/bin/zsh"
 		return 1
 	fi
 
@@ -233,9 +245,16 @@ main() {
 
 	# Check if ZUI is installed
 	if [[ ! -d ${ZUI_PATH} ]]; then
-		log_error "ZUI core installation not found at: ${ZUI_PATH}"
-		log_error "Please install ZUI core first with: zui.sh install-core"
-		exit 1
+		log_warn "ZUI core installation not found at: ${ZUI_PATH}"
+		log_warn "Creating ZUI directory structure for shell installation only"
+		log_warn "Some features may not be available without core installation"
+
+		# Create basic ZUI directory structure
+		if ! mkdir -p "${ZUI_PATH}/shell" "${ZUI_PATH}/backups/shell"; then
+			log_error "Failed to create ZUI directory structure"
+			exit 1
+		fi
+		echo ""
 	fi
 
 	confirm_shell_installation
